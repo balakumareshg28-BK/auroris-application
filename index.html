@@ -14,7 +14,7 @@
       (function() {
         try {
           var stored = localStorage.getItem('theme') || localStorage.getItem('polaris_theme');
-          var theme = (stored === 'dark' || stored === 'light') ? stored : 'light';
+          var theme = (stored === 'dark' || stored === 'light') ? stored : 'dark';
           document.documentElement.setAttribute('data-theme', theme);
           if (theme === 'dark') {
             document.documentElement.classList.add('dark');

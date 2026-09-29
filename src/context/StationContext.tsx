@@ -123,7 +123,7 @@ export const StationProvider: React.FC<{ children: React.ReactNode }> = ({ child
         console.warn('Unable to read theme from localStorage:', e);
       }
     }
-    return 'light'; // Default White/Light theme
+    return 'dark'; // Default Dark theme
   });
 
   useEffect(() => {

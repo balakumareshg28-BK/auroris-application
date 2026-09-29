@@ -1459,6 +1459,17 @@ app.get(["/health", "/api/health", "/healthz", "/livez", "/readyz"], (_req, res)
     hasGeminiKey: !!apiKey
   });
 });
+app.get(["/api/download-zip", "/download-zip"], (_req, res) => {
+  const rootZip = path.resolve(process.cwd(), "polaris-x-netlify-ready.zip");
+  const distZip = path.resolve(process.cwd(), "dist/polaris-x-netlify-ready.zip");
+  const publicZip = path.resolve(process.cwd(), "public/polaris-x-netlify-ready.zip");
+  const candidate = [rootZip, distZip, publicZip].find((p) => fs.existsSync(p));
+  if (candidate) {
+    res.download(candidate, "polaris-x-netlify-ready.zip");
+  } else {
+    res.status(404).json({ error: "ZIP file not found" });
+  }
+});
 app.get("/api/telemetry", (_req, res) => {
   const sensors = Array.from(serverSimulator.sensors.values());
   const trust = trustEngine.evaluateSensors(sensors);

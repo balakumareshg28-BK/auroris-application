@@ -31,6 +31,7 @@ import {
   VolumeX,
   Building,
   Compass,
+  Download,
   X,
   Zap,
 } from 'lucide-react';
@@ -716,6 +717,17 @@ export const TopNav: React.FC<TopNavProps> = ({
               <RotateCcw className="w-3.5 h-3.5" />
             </motion.button>
           </div>
+
+          {/* Download Netlify Project ZIP */}
+          <a
+            href="/polaris-x-netlify-ready.zip"
+            download="polaris-x-netlify-ready.zip"
+            className="liquid-glass-btn flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-mono font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-500/15 dark:bg-emerald-950/40 border border-emerald-400/60 dark:border-emerald-500/60 shadow-[0_2px_10px_rgba(16,185,129,0.2)] hover:border-emerald-500 hover:scale-105 transition-all cursor-pointer"
+            title="Download complete project as ZIP archive ready for Netlify deployment"
+          >
+            <Download className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+            <span className="hidden sm:inline">Netlify ZIP</span>
+          </a>
 
           {/* Gemini AI Assistant Drawer Toggle */}
           <LiquidGlassButton
