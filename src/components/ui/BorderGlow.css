@@ -1,0 +1,63 @@
+/* ---- BorderGlow.css ---- */
+.border-glow-card {
+  --edge-proximity: 0;
+  --cursor-angle: 45deg;
+  --edge-sensitivity: 30;
+  --color-sensitivity: calc(var(--edge-sensitivity) + 20);
+  --border-radius: 1.25rem;
+  --glow-padding: 30px;
+  --cone-spread: 25;
+  position: relative;
+  border-radius: var(--border-radius);
+  isolation: isolate;
+  transform: translate3d(0, 0, 0.01px);
+  display: grid;
+  border: 1px solid var(--border-glass, #e2e8f0);
+  background: var(--card-bg, #ffffff);
+  overflow: visible;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme='dark'] .border-glow-card {
+  border: 1px solid var(--border-glass, rgba(51, 65, 85, 0.65));
+  background: var(--card-bg, var(--bg-card, rgba(15, 23, 42, 0.75)));
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  box-shadow: var(--shadow-glass, 0 8px 32px 0 rgba(0, 0, 0, 0.45));
+}
+
+.border-glow-card::before,
+.border-glow-card::after,
+.border-glow-card > .edge-light {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transition: opacity 0.25s ease-out;
+  z-index: -1;
+}
+
+.border-glow-card:not(:hover):not(.sweep-active)::before,
+.border-glow-card:not(:hover):not(.sweep-active)::after,
+.border-glow-card:not(:hover):not(.sweep-active) > .edge-light {
+  opacity: 0;
+  transition: opacity 0.75s ease-in-out;
+}
+
+/* colored mesh-gradient border */
+.border-glow-card::before {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--card-bg, var(--bg-card, rgba(255, 255, 255, 0.82))) 0 100%) padding-box,
+    linear-gradient(rgba(255, 255, 255, 0) 0% 100%) border-box,
+    var(--gradient-one, radial-gradient(at 80% 55%, hsla(210, 100%, 65%, 1) 0px, transparent 50%)) border-box,
+    var(--gradient-two, radial-gradient(at 69% 34%, hsla(200, 100%, 65%, 1) 0px, transparent 50%)) border-box,
+    var(--gradient-three, radial-gradient(at 8% 6%, hsla(190, 100%, 65%, 1) 0px, transparent 50%)) border-box;
+  opacity: calc((var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
+}
+
+.border-glow-inner {
+  position: relative;
+  z-index: 1;
+  border-radius: inherit;
+}

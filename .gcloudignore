@@ -1,0 +1,11 @@
+# Google Cloud Run source deployment ignore rules
+.gcloudignore
+.git
+.gitignore
+.dockerignore
+node_modules/
+.npm/
+.cache/
+*.log
+.dev.*
+.DS_Store

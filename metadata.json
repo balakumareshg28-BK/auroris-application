@@ -1,0 +1,6 @@
+{
+  "name": "AURORIS",
+  "description": "Polar Operations, Logistics, Asset Resilience & Intelligence System - Decision-support digital twin for isolated Antarctic research stations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

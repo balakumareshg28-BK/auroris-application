@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AURORIS | Antarctic Station Portal (Maitri & Bharati)</title>
+    <meta name="description" content="Polar Operations, Logistics & Digital Twin Portal for Antarctic Research Stations Maitri and Bharati." />
+    <meta property="og:title" content="AURORIS | Antarctic Station Portal (Maitri & Bharati)" />
+    <meta property="og:description" content="Polar Operations, Logistics & Digital Twin Portal for Antarctic Research Stations Maitri and Bharati." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'%3E%3C/polygon%3E%3C/svg%3E" />
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('theme') || localStorage.getItem('polaris_theme');
+          var theme = (stored === 'dark' || stored === 'light') ? stored : 'light';
+          document.documentElement.setAttribute('data-theme', theme);
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="antialiased selection:bg-sky-500/20 selection:text-sky-700 dark:selection:bg-cyan-500/30 dark:selection:text-cyan-200 min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
